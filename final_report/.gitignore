@@ -294,3 +294,6 @@ auto/
 
 # remove the twitter HTML file
 *.html
+
+# remove md files too
+*.md
