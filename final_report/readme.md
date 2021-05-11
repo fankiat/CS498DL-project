@@ -9,7 +9,7 @@
 
 # Updates
 
-For ease in readability and grading, updates to the report (from the first checkpoint) and new results \newcontent{are marked in violet, like this sentence}.
+For ease in readability and grading, updates to the report (from the first checkpoint) and new results \newcontent{are marked in violet, like this} \newcontent{sentence}. Finally, all code used to generate results in the report can be found [in this repository (click here)](https://github.com/fankiat/CS498DL-project).
 
 # Problem summary
 
@@ -94,7 +94,7 @@ This concludes our section on model choice and training. We now use this model t
 We start by investigating PINN solutions of simple linear PDEs with established theoretical results against which we compare. Here, we consider solutions \( u : x \mapsto \mathbb{R}, x \in [0, 1] \) to the 1D Poisson equation, described by
 
 \begin{equation}
-\label{orga68e626}
+\label{orgd937a31}
 \begin{aligned}
 	\pde[ u ] &:= \nabla^2 u  - f = 0 \\
 	   		  &:= \frac{\partial^2 u}{\partial x^2} - f(x) = 0
@@ -130,7 +130,7 @@ We again train our PINN with \( N_\pde = 100 , N_b = 2\) and recover the solutio
 Next, we consider solutions to more complex linear problems. Here, we consider solutions \( u : x \mapsto \mathbb{R}, x \in [0, 1] \) to the 1D Helmholtz equation, described by
 
 \begin{equation}
-\label{org319f700}
+\label{orga976423}
 \begin{aligned}
 	\pde[ u ] &:= \left(\nabla^2 + k^2 \right) u - f = 0 \\
 	   		  &:= \frac{\partial^2 u}{\partial x^2} + k^2 u - f(x) = 0
@@ -168,7 +168,7 @@ Next we demonstrate solutions of [eqn:helmholtz](#eqn:helmholtz) with a non-sinu
 Now, towards realizing our goals of solving temporally evolving non-linear problems, we introduce a non-linearity in the governing PDE. Here, we build up on results presented in [sec:poisson](#sec:poisson) and [sec:helmholtz](#sec:helmholtz), by adding a square non-linearity to the Poisson equation, similar in structure to the Helmholtz equation i.e. an additional term depending only on \( u^2\). The simplest PDE that satisfies these conditions, while being practically relevant, is the stationary viscous Burgers equation. We consider its solutions \( u : x \mapsto \mathbb{R}, x \in [0, 1]\), described by
 
 \begin{equation}
-\label{org9055890}
+\label{org5f1f097}
 \begin{aligned}
 	 \pde[ u ] := \frac{1}{Pe}\frac{\partial^2 u}{\partial x^2} + \frac{1}{2}\frac{\partial \left(u^2\right)}{\partial x} - f(x) = 0
 \end{aligned}
@@ -193,7 +193,7 @@ Next, we investigate the case with \( Pe = 50\), where effects of non-linearitie
 We then increase the complexity of PDE from our previous section on stationary viscous Burgers [eqn:stationary_burgers](#eqn:stationary_burgers) by adding in a temporal evolution term. This results in the time evolving, nonlinear viscous Burgers equation whose solutions \( u : (y, t) \mapsto \mathbb{R},~y \in [0, 1],~t \in [0, 1] \), are described by
 
 \begin{equation}
-\label{org7c63f10}
+\label{orgd667b23}
 \begin{aligned}
 	 \pde[ u ] := \frac{\partial u}{\partial t} + \frac{1}{2}\frac{\partial \left(u^2\right)}{\partial y} - \frac{1}{Pe}\frac{\partial^2 u}{\partial y^2} = 0
 \end{aligned}
@@ -220,7 +220,7 @@ Once more, we train our PINN with \( N_\pde = 10000 \) sampled on a \( 100 \time
 Finally we utilize the machinery of [eqn:burgers](#eqn:burgers) to demonstrate solutions of the Laplace equation in fully two-dimensional settings. The solutions \( u : \gv{x} := (x, y) \mapsto \mathbb{R},~\gv{x} \in \mathcal{D}\) for some domain \( \mathcal{D} \) are described by
 
 \begin{equation}
-\label{org9f64122}
+\label{orgc6bc9df}
 \begin{aligned}
 	\pde[ u ] &:= \nabla^2 u = 0 \\
 	   		  &:= \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0

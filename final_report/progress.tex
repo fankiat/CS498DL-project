@@ -1,4 +1,4 @@
-% Created 2021-05-10 Mon 19:15
+% Created 2021-05-10 Mon 19:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -54,7 +54,7 @@
 \maketitle
 
 \section{Team details}
-\label{sec:orgdda4956}
+\label{sec:org6c892e9}
 \begin{center}
 \begin{tabular}{lll}
 \toprule
@@ -68,12 +68,14 @@ Parthasarathy, Tejaswin & tp5@illinois.edu & Mechanical Science and Engineering\
 \end{center}
 
 \section{Updates}
-\label{sec:org9bddb30}
+\label{sec:org69da6f5}
 For ease in readability and grading, updates to the report (from the first
-checkpoint) and new results \newcontent{are marked in violet, like this sentence}.
+checkpoint) and new results \newcontent{are marked in violet, like this}
+\newcontent{sentence}. Finally, all code used to generate results in the report can be
+found \href{https://github.com/fankiat/CS498DL-project}{in this repository (click here)}.
 
 \section{Problem summary}
-\label{sec:orgb816686}
+\label{sec:org6a1aaa6}
 \newcontent{
 We implement and investigate Physics-Informed Neural Networks, a deep-learning approach for solving non-linear
 partial differential equations. We demonstrate PINNs' ability to solve
@@ -91,7 +93,7 @@ numerical discretization or problem-specific algorithms.
 \newpage
 
 \section{Introduction and background}
-\label{sec:org40dc8b2}
+\label{sec:orgfff21aa}
 \newcontent{
 In this report, we implement and investigate Physics-Informed Neural Networks
 (PINNs), a deep-learning approach for generating numerical solutions
@@ -107,7 +109,7 @@ solve them, which in turn motivates the need for alternative methods such as PIN
  }
 
 \subsection{Partial differential equations}
-\label{sec:org6db4771}
+\label{sec:orgccb257c}
 Partial differential equations (PDE) are ubiquitous in science and
 engineering. Mathematically, a PDE imposes relations between various partial
 derivatives of a multi-variable function within a system of interest. These
@@ -134,7 +136,7 @@ usually non-linear (i.e. they belong to the category of non-linear partial diffe
 and we do not \emph{apriori} know their closed-form mathematical solutions.
 
 \subsection{Numerical solution to partial differential equations}
-\label{sec:org9007ca2}
+\label{sec:org2de1e66}
 
 To solve these nPDEs then, we turn to numerical solutions. The traditional
 approach here is to numerically \emph{discretize} the nPDE over a large grid of
@@ -166,7 +168,7 @@ time intensive, especially when new PDEs need to be modeled.
 }
 
 \subsection{PINNs}
-\label{sec:orgafa16fc}
+\label{sec:orgaeac313}
 An alternative approach to solving PDEs numerically, aiming to partially
 offset the aforementioned challenges, involves utilizing data-driven
 techniques popularized by the advent of machine learning
@@ -199,7 +201,7 @@ BVPs in complex domains, such as those found in continuum
 solid mechanics.
 
 \subsection{Deliverables}
-\label{sec:org585095b}
+\label{sec:org79d77c0}
 \newcontent{
 Having motivated the need for ML approaches such as PINNs for solving PDEs,
 }
@@ -216,7 +218,7 @@ and direct numerical simulation approaches are computationally expensive.
 \end{enumerate}
 
 \section{Results}
-\label{sec:orgd8203df}
+\label{sec:orgb45679f}
 We demonstrate our results by considering PINN solutions to increasingly
 complex PDEs in a step-by-step fashion. Particularly, we start by
 describing the implementation of such PINNs. Then we consider a sequence of
@@ -225,7 +227,7 @@ which we utilize to generate solutions to more complex spatio-temporal nPDEs
 (Burgers, 2D Poisson).
 
 \subsection{Implementation details}
-\label{sec:orgc31aab7}
+\label{sec:orgbba7158}
 Here we consider BVPs as parametrized PDEs of the form
 \[ \mathcal{P}[u ; \lambda] = 0, x \in [0, 1] \]
 where \(x\) denotes the solution domain, \(u : x \mapsto \mathbb{R}\)
@@ -237,7 +239,7 @@ where we only provide the PDE to be satisfied and boundary data.
 We now describe our network architecture, loss functions and training protocols used to implement PINNs.
 
 \subsubsection{Network architecture}
-\label{sec:orgae9cba9}
+\label{sec:org7c8f50e}
 We design our PINNs to take input points \(x_i,~i = 1, \dots,  N_\pde\)
 sampled \(\in [0, 1]\) as a vector \(\in \mathbb{R}^{N_\pde}\).The total
 number of input points \(N_\pde\) is chosen based on the desired resolution. The network then
@@ -262,7 +264,7 @@ of our network and consequently destroys any potential for generalization to
 arbitrary PDEs. With this fixed model, we proceed to train our network.
 
 \subsubsection{Loss function}
-\label{sec:orge2e771c}
+\label{sec:org9165bb2}
 During training, we minimize the loss of sum of mean squared errors
 associated with the PDE \(\pde\) and boundary data \(u_{b}\). That
 is the total loss \(\mse\) is defined as
@@ -286,7 +288,7 @@ hyper-parameter \(\lambda_{\pde}\), which we set to \(1\) in our
 experiments, unless noted otherwise.
 
 \subsubsection{Training protocol}
-\label{sec:org2ba11e0}
+\label{sec:org7b1a560}
 One attractive feature of PINNs for generating PDE solutions is that its training
 is not data intensive. Indeed, PINNs are self-supervised and works in
 sparse-data limits---it only needs the PDE structure and boundary
@@ -361,7 +363,7 @@ analytical solutions.
 \end{figure}
 
 \subsubsection{Dirichlet boundaries}
-\label{sec:org8aa119b}
+\label{sec:orge32ce6b}
 In this regard, we first solve \cref{eqn:poisson} with Dirichlet (or) constant-value
 boundary conditions
 \[ u_b(0) = -1 ;\quad  u_b(1) = 0\]
@@ -375,7 +377,7 @@ solution agrees with the analytical one,
 with \(e = 4.6 \times 10^{-4}\). The loss history is dominated by \(\mse_\pde\) and steadily decreases with increasing epochs.
 
 \subsubsection{Mixed Dirichlet--Neumann boundaries}
-\label{sec:orgf01a18e}
+\label{sec:org9d68767}
 Next we demonstrate solutions of \cref{eqn:poisson} with Neumann (or)
 constant-slope boundary condition on the right boundary and retain Dirichlet
 conditions on the left boundary.
@@ -426,7 +428,7 @@ boundary conditions
 \caption{\label{fig:helmholtz_results}PINN results (solution and loss histories) for the 1D Helmholtz equation shown for (left) sinusoidal forcing and (right) gaussian forcing. The PINN solutions are depicted by solid, blue lines while scatter points represent reference analytical/finite-difference solutions.}
 \end{figure}
 \subsubsection{Sinusoidal forcing}
-\label{sec:org4f447b3}
+\label{sec:org9d289cc}
 In this regard, we first solve \cref{eqn:helmholtz} for \(k = 4\) with the
 same forcing equation as in \cref{sec:poisson}, reproduced below for convenience.
 \[ f(x) = 10 \left(\sin(\pi x) + 2\sin(2\pi x) + 3\sin(3\pi x) + 10\sin(4\pi
@@ -453,7 +455,7 @@ boundary loss. For the PDE loss, we observe a similar decrease around 8k
 epochs but this time the behavior is comparatively less pronounced.
 
 \subsubsection{Gaussian forcing}
-\label{sec:orgf33662f}
+\label{sec:orgc64cb81}
 Next we demonstrate solutions of \cref{eqn:helmholtz} with a non-sinusoidal
 forcing demonstrated below, consisting of two Gaussian bumps
 \[ f(x) = \exp\left[-\left(\frac{(x - 0.3)}{0.1}\right)^2\right] -  \exp\left[-\left(\frac{(x -
@@ -508,7 +510,7 @@ on numerical solutions \({u}_h\) based on finite-differences.
 \end{figure}
 
 \subsubsection{\(Pe = 5\)}
-\label{sec:orgeb915d3}
+\label{sec:org5dc6172}
 We begin by investigating the capability of our PINN to solve
 \cref{eqn:stationary_burgers} for \(Pe = 5\). Here, we expect
 non-linearities to be not too significant, and hence our network should behave
@@ -520,7 +522,7 @@ histories. We see that our PINN solution agrees with the reference solution,
 with \(e_h = 6.4 \times 10^{-4}\). The loss history is dominated by \(\mse_\pde\) and steadily decreases with increasing epochs.
 
 \subsubsection{\(Pe = 50\)}
-\label{sec:orgbbe7ced}
+\label{sec:org6a6f34d}
 Next, we investigate the case with \(Pe = 50\), where effects of
 non-linearities are expected to be significant. Here we expect a relatively
 smooth solution in the bulk of the domain, with a rapid adjustment to the boundary
@@ -584,7 +586,7 @@ on numerical solutions \({u}_h\) based on finite-differences.
 \end{figure}
 
 \subsubsection{Shock waves}
-\label{sec:orgf5a9f62}
+\label{sec:org997b945}
 \newcontent{
 We begin by investigating the capability of our PINN to capture non-linear shocks in
 \cref{eqn:burgers}. To instigate these shocks, we
@@ -614,7 +616,7 @@ center of our space-time domain.
 }
 
 \subsubsection{Rarefaction waves}
-\label{sec:org032a3f1}
+\label{sec:org6472f69}
 \newcontent{
 Next, we investigate the formation of non-linear rarefaction waves with our PINN in
 \cref{eqn:burgers}. To setup these rarefaction waves, we choose the following
@@ -679,7 +681,7 @@ resulting solution is more challenging to capture.
 \end{figure}
 
 \subsubsection{Rectangular domain}
-\label{sec:org227023b}
+\label{sec:orgabbae02}
 \newcontent{
 We begin by testing our PINN architecture to solve \cref{eqn:laplace} in a
 rectangular domain. Here we fix Dirichlet boundary condition in the
@@ -715,7 +717,7 @@ into the domain and capture the interior solutions.
 }
 
 \subsubsection{Starfish domain}
-\label{sec:orgd4bff2b}
+\label{sec:orgaed67f3}
 \newcontent{
 Finally, we challenge our PINN approach to capture solutions in complex
 domains. Here we choose a domain resembling the shape of a starfish, shown
@@ -778,7 +780,7 @@ at the domain boundaries.
 \end{figure}
 
 \section{Conclusions}
-\label{sec:org31592da}
+\label{sec:org9701e2b}
 \newcontent{
 In summary, we successfully implemented and investigated PINN for solving
 non-linear partial differential equations. We demonstrated PINNs’ ability to
@@ -797,7 +799,7 @@ by presenting the versatility and robustness of PINN by solving a PDE
 otherwise difficult to solve by conventional numerical algorithms.
 }
 \section{Personal interests}
-\label{sec:orge2dd94e}
+\label{sec:orgad03acb}
 In our first project checkpoint we were asked to ``\emph{provide more information on}
 \emph{how this topic relates to your backgrounds and any research projects outside}
 \emph{of this class}''. This section intends to answer this question.
@@ -818,7 +820,7 @@ turbulence)
 \end{itemize}
 
 \section{Contributions}
-\label{sec:org1f7ca72}
+\label{sec:org3be66b6}
 All three members were involved in project conceptualization, implementing the
 software, running numerical experiments, analyzing and visualizing data and finally
 preparing the report.

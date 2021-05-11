@@ -32,7 +32,9 @@
 
 * Updates
   For ease in readability and grading, updates to the report (from the first
-  checkpoint) and new results \newcontent{are marked in violet, like this sentence}.
+  checkpoint) and new results \newcontent{are marked in violet, like this}
+  \newcontent{sentence}. Finally, all code used to generate results in the report can be
+  found [[https://github.com/fankiat/CS498DL-project][in this repository (click here)]].
 
 * Problem summary
   @@latex:\newcontent{@@
