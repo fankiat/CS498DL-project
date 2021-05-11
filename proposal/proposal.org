@@ -1,0 +1,59 @@
+#+TITLE: Physics informed neural networks for problems involving nonlinear differential equations.
+#+AUTHOR: CS498DL, Spring 2021
+#+SUBTITLE: Project Proposal
+#+OPTIONS: H:2 num:t toc:nil date:nil ::t |:t ^:{} -:t f:t *:t <:t
+#+LATEX_HEADER:\usepackage{cleveref}
+#+LATEX_HEADER:\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+#+LATEX_HEADER:\newcommand{\bv}[1]{\ensuremath{\boldsymbol{#1}}}
+#+LATEX_HEADER:\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+#+LATEX_HEADER:\newcommand{\imag}[1]{\mathrm{Im} \left[ #1 \right]}
+#+LATEX_HEADER:\newcommand{\order}[1]{\mathcal O \left( #1 \right)}
+#+LATEX_HEADER:\newcommand{\RN}[1]{\textup{\uppercase\expandafter{\romannumeral#1}}}
+#+LATEX_HEADER:\usepackage{setspace}
+#+LATEX_HEADER:\onehalfspacing
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER:\setminted[powershell]{fontsize=\footnotesize}
+#+LATEX_HEADER:\usepackage[lmargin=0.6in, rmargin=0.6in, tmargin=0.6in, bmargin=0.6in]{geometry}
+#+LATEX_HEADER:\newcommand{\cpp}{\texttt{C++} }
+#+LATEX_HEADER:\definecolor{violet}{RGB}{89,99,225}
+#+LATEX_HEADER:\newcommand{\newcontent}[1]{\textcolor{violet}{#1}}
+
+* Team details
+  | Name                    | NetID                 | Department                         |
+  |-------------------------+-----------------------+------------------------------------|
+  | Bhosale, Yashraj        | bhosale2@illinois.edu | Mechanical Science and Engineering |
+  | Chan, Fan Kiat          | fchan5@illinois.edu   | Mechanical Science and Engineering |
+  | Parthasarathy, Tejaswin | tp5@illinois.edu      | Mechanical Science and Engineering |
+
+* Description
+
+
+** Some background on PINN
+   Physics-informed neural networks (PINN) are models trained to solve
+   supervised learning tasks while adhering to given laws of physics cite:raissi2019physics described
+   by general nonlinear partial differential equations (nPDEs). Recent works on
+   PINN have shown promise in instantly predicting results for temporally
+   evolving nPDEs in problems across scientific domains, for example in
+   incompressible fluid dynamics, reaction--diffusion systems in phase
+   transition and computational chemistry, and the propagation of nonlinear
+   waves in quantum mechanics. Additionally, it can also generate solutions for
+   boundary value problems in complex domains, such as those found in continuum
+   solid mechanics.
+
+** Deliverables
+   1. We propose to implement the algorithm for such PINN and validate it
+      against a time-dependent problem drawn from the paper (such as the Burger’s
+      equation) as well as against a time-independent boundary value problem
+      with known (numerical) solutions (such as Laplace or Poisson equation).
+   2. Finally, if time permits, we will extend the method for solving problems
+      of higher complexity. In particular, we are interested in solving problems
+      in the field of fluid mechanics cite:jin2020nsfnets,raissi2020hidden, with
+      focus on problems where where no known analytical solutions are available
+      and direct numerical simulation approaches are
+      computationally expensive.
+
+
+
+ [[bibliography:../report/CS498DL_project.bib]]
+
+ [[bibliographystyle:unsrt]]
